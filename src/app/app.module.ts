@@ -9,13 +9,15 @@ import { RegisterComponent } from './pages/components/register/register.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ResetarSenhaComponent } from './pages/components/resetar-senha/resetar-senha.component';
+import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esqueceu-senha.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ResetarSenhaComponent
+    ResetarSenhaComponent,
+    EsqueceuSenhaComponent
   ],
   imports: [
     BrowserModule,

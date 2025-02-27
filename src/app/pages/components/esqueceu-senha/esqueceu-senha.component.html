@@ -1,0 +1,47 @@
+<div class="container_reset">
+  <div class="imagem">
+    <img
+      src="../../../../assets/Styles/img/undraw_forgot-password_odai (1).svg"
+    />
+  </div>
+
+  <div class="form-container">
+    <h1 class="titulo">Esqueceu a senha?</h1>
+    <h3 class="subtitulo">Informe o seu e-mail e redefina a senha</h3>
+    <!-- Formulário -->
+    <form
+      (ngSubmit)="submit()"
+      [formGroup]="formEsqueceuSenha"
+      #formDir="ngForm"
+    >
+      <div class="formulario">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="seuEmail@gmail.com"
+            required
+          />
+        </div>
+        <div
+          *ngIf="email.invalid && formDir.submitted"
+          class="erro-validacao"
+          required
+        >
+          <p *ngIf="formEsqueceuSenha.get('email')?.errors?.['required']">
+            Preencha com o seu email
+          </p>
+        </div>
+
+        <button type="submit" class="botao" routerLink="/resetarSenha">Redefinir</button>
+
+        <p class="link">
+          Ainda não é cadastrado? <a routerLink="/cadastrar"> Cadastrar</a>
+        </p>
+        <p class="link">Faça <a routerLink="/login">login</a></p>
+      </div>
+    </form>
+  </div>
+</div>

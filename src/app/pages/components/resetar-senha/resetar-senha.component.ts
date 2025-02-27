@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-resetar-senha',
   templateUrl: './resetar-senha.component.html',
-  styleUrls: ['./resetar-senha.component.scss']
+  styleUrls: ['./resetar-senha.component.scss'],
 })
 export class ResetarSenhaComponent implements OnInit {
   formResetarSenha!: FormGroup;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    this.formResetarSenha = new FormGroup({
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
   }
 
   get email() {
@@ -29,5 +33,4 @@ export class ResetarSenhaComponent implements OnInit {
     }
     console.log('Formulário válido', this.formResetarSenha.value);
   }
-
 }
