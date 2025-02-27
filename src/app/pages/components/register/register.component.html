@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="imagem">
+    <img src="../../../../assets/Styles/img/registerImage.png" />
+  </div>
+
+  <div class="form-container">
+    <h1 class="titulo">Efetue o seu cadastro</h1>
+    <h3 class="subtitulo">Preencha os seguintes campos</h3>
+    <!-- Formulário -->
+    <form (ngSubmit)="submit()" [formGroup]="formRegister" #formDir="ngForm">
+      <div class="formulario">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input
+            type="text"
+            id="name"
+            formControlName="nome"
+            placeholder="Digite o seu nome"
+            required
+          />
+        </div>
+        <div
+          *ngIf="nome.invalid && formDir.submitted"
+          class="erro-validacao"
+          required
+        >
+          <p *ngIf="formRegister.get('nome')?.errors?.['required']">
+            Preencha com o seu nome
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="seuEmail@gmail.com"
+            required
+          />
+        </div>
+        <div
+          *ngIf="email.invalid && formDir.submitted"
+          class="erro-validacao"
+          required
+        >
+          <p *ngIf="formRegister.get('email')?.errors?.['required']">
+            Preencha com o seu email
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder="********"
+            required
+          />
+        </div>
+        <div
+          *ngIf="password.invalid && formDir.submitted"
+          class="erro-validacao"
+          required
+        >
+          <p *ngIf="formRegister.get('password')?.errors?.['required']">
+            Informe uma senha
+          </p>
+        </div>
+
+        <button type="submit" class="botao">Cadastrar</button>
+
+        <p class="link">
+          Já possui uma conta? Faça <a routerLink="login">Login</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

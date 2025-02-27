@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="imagem">
+    <img src="../../../../assets/Styles/img/" />
+  </div>
+
+  <div class="form-container">
+    <h1 class="titulo">Bem-Vindo</h1>
+    <h3 class="subtitulo">Efetue o seu login</h3>
+    <!-- Formulário -->
+    <form (ngSubmit)="submit()" [formGroup]="formResetarSenha" #formDir="ngForm">
+      <div class="formulario">
+        <p *ngIf="formResetarSenha.get('nome')?.errors?.['required']">
+          Preencha com o seu nome
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="seuEmail@gmail.com"
+          required
+        />
+      </div>
+      <div
+        *ngIf="email.invalid && formDir.submitted"
+        class="erro-validacao"
+        required
+      >
+        <p *ngIf="formResetarSenha.get('email')?.errors?.['required']">
+          Preencha com o seu email
+        </p>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="********"
+          required
+        />
+      </div>
+      <div
+        *ngIf="password.invalid && formDir.submitted"
+        class="erro-validacao"
+        required
+      >
+        <p *ngIf="formResetarSenha.get('password')?.errors?.['required']">
+          Informe uma senha
+        </p>
+      </div>
+
+      <button type="submit" class="botao">Cadastrar</button>
+
+      <p class="link">
+        Ainda não é cadastrado? <a href="#"> Cadastrar</a>
+      </p>
+    </form>
+  </div>
+</div>
