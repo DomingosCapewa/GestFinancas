@@ -6,7 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { LoginService } from 'src/app/services/auth/login.service';
+import { UsuarioService } from 'src/app/services/auth/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -19,14 +19,10 @@ export class LoginComponent implements OnInit {
   userPassword: string = '';
   errorMessage: string = '';
 
-  constructor(
-    private loginService: LoginService,
-    private fb: FormBuilder,
-    private http: HttpClient
-  ) {}
+  constructor(private fb: FormBuilder, private http: HttpClient,  private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
-    this.formRegister = new FormGroup({
+    this.formRegister = this.fb.group({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
@@ -48,19 +44,7 @@ export class LoginComponent implements OnInit {
     console.log('Formulário válido', this.formRegister.value);
   }
 
-  OnLogin(): void {
-    this.loginService.login(this.userEmail, this.userPassword).subscribe(
-      (user) => {
-        if (user) {
-          console.log('Benvindo', user);
-        } else {
-          this.errorMessage = 'Usuário ou senha inválidos';
-        }
-      },
-      (error) => {
-        console.log(error);
-        this.errorMessage = error.error.message;
-      }
-    );
+  login(): void {
+    return;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from 'src/app/services/auth/usuario.service';
 
 @Component({
   selector: 'app-resetar-senha',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ResetarSenhaComponent implements OnInit {
   formResetarSenha!: FormGroup;
 
-  constructor() {}
+  constructor(private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
     this.formResetarSenha = new FormGroup({
@@ -33,4 +34,5 @@ export class ResetarSenhaComponent implements OnInit {
     }
     console.log('Formulário válido', this.formResetarSenha.value);
   }
+
 }

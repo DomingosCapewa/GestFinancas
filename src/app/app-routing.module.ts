@@ -6,11 +6,11 @@ import { ResetarSenhaComponent } from './pages/components/resetar-senha/resetar-
 import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esqueceu-senha.component';
 
 const routes: Routes = [
-
-   { path: 'login', component: LoginComponent },
-   { path: 'cadastrar', component: RegisterComponent },
-   { path: 'esqueceuSenha', component: EsqueceuSenhaComponent },
-   { path: 'resetarSenha', component: ResetarSenhaComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'cadastrar', component: RegisterComponent },
+  { path: 'esqueceuSenha', component: EsqueceuSenhaComponent },
+  { path: 'resetarSenha', component: ResetarSenhaComponent },
 ];
 
 @NgModule({

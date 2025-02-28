@@ -7,7 +7,7 @@
     <h1 class="titulo">Efetue o seu cadastro</h1>
     <h3 class="subtitulo">Preencha os seguintes campos</h3>
     <!-- Formulário -->
-    <form (ngSubmit)="submit()" [formGroup]="formRegister" #formDir="ngForm">
+    <form (ngSubmit)="register()" [formGroup]="formRegister" #formDir="ngForm">
       <div class="formulario">
         <div class="form-group">
           <label for="name">Nome:</label>
@@ -48,6 +48,9 @@
         >
           <p *ngIf="formRegister.get('email')?.errors?.['required']">
             Preencha com o seu email
+          </p>
+          <p *ngIf="formRegister.get('email')?.errors?.['email']">
+            Informe um e-mail válido
           </p>
         </div>
 
