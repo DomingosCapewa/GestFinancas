@@ -1,5 +1,5 @@
 {
-  "register": [
+  "users": [
     {
       "id": 1,
       "nome": "Dominic",
@@ -10,6 +10,12 @@
       "id": 2,
       "nome": "Domingos",
       "email": "domi@gmail.com",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "nome": "Maria do carmo",
+      "email": "maria@gmail.com",
       "password": "1234"
     }
   ]
