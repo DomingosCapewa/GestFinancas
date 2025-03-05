@@ -4,14 +4,30 @@ import { LoginComponent } from './pages/components/login/login.component';
 import { RegisterComponent } from './pages/components/register/register.component';
 import { ResetarSenhaComponent } from './pages/components/resetar-senha/resetar-senha.component';
 import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esqueceu-senha.component';
+import { AuthenticationComponent } from './pages/components/authentication/authentication.component';
+import { AuthGuard } from './pages/components/shared/guards/auth.guard';
+import { HomeComponent } from './pages/components/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'cadastrar', component: RegisterComponent },
-  { path: 'esqueceuSenha', component: EsqueceuSenhaComponent },
-  { path: 'resetarSenha', component: ResetarSenhaComponent },
+  {
+    path: '',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: '',
+    component: AuthenticationComponent,
+    children: [
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+      { path: 'cadastrar', component: RegisterComponent },
+      { path: 'esqueceuSenha', component: EsqueceuSenhaComponent },
+      { path: 'resetarSenha', component: ResetarSenhaComponent },
+    ],
+  },
 ];
+
+//Adicionar depois a rota de home e edição de perfil
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

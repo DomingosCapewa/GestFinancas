@@ -13,23 +13,17 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
-  getUser(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/user`);
+  login(user: any): Promise<boolean> {
+    return new Promise((resolve) => {
+      window.localStorage.setItem('token', 'meu-token');
+      resolve(true);
+    });
   }
 
-  login(credentials: { email: string; password: string }) {
-    return this.http.post(`${this.apiUrl}/login`, credentials).subscribe(
-      (res: any) => console.log('Login realizado com sucesso!', res),
-      (err: any) => console.log('Erro ao realizar login', err)
-    );
-  }
-
-  register(user: {
-    name: string;
-    email: string;
-    password: string;
-  }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, user);
+  register(account: any): Promise<boolean> {
+    return new Promise((resolve) => {
+      resolve(true);
+    });
   }
 
   esqueceuSenha(email: string): Observable<any> {

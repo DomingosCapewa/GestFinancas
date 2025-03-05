@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ResetarSenhaComponent } from './pages/components/resetar-senha/resetar-senha.component';
 import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esqueceu-senha.component';
+import { AuthenticationComponent } from './pages/components/authentication/authentication.component';
+import { HomeComponent } from './pages/components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esquec
     LoginComponent,
     RegisterComponent,
     ResetarSenhaComponent,
-    EsqueceuSenhaComponent
+    EsqueceuSenhaComponent,
+    AuthenticationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,11 @@ import { UsuarioService } from 'src/app/services/auth/usuario.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
+  register = {
+    nome: '',
+    email: '',
+    password: '',
+  };
   formRegister!: FormGroup;
 
   constructor(
@@ -42,25 +47,5 @@ export class RegisterComponent implements OnInit {
     return this.formRegister.get('password')!;
   }
 
-  submit() {
-    if (this.formRegister.invalid) {
-      console.log('Formulário inválido');
-      return;
-    }
-    console.log('Formulário válido', this.formRegister.value);
-    this.register(); 
-  }
-
-  register(): void {
-    const user = {
-      name: this.formRegister.value.nome,
-      email: this.formRegister.value.email,
-      password: this.formRegister.value.password,
-    };
-
-    this.usuarioService.register(user).subscribe((data) => {
-      console.log(data);
-      this.router.navigate(['/login']);
-    });
-  }
+  async onSubmit() {}
 }

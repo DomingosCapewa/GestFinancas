@@ -6,6 +6,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/auth/usuario.service';
 
 @Component({
@@ -14,37 +15,65 @@ import { UsuarioService } from 'src/app/services/auth/usuario.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  formRegister!: FormGroup;
-  userEmail: string = '';
-  userPassword: string = '';
-  errorMessage: string = '';
+  userObj: User = new User();
+  login = {
+    email: '',
+    password: '',
+  };
+  formLogin!: FormGroup;
+  // userEmail: string = '';
+  // userPassword: string = '';
+  // errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient,  private usuarioService: UsuarioService) {}
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.formRegister = this.fb.group({
+    this.formLogin = this.fb.group({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
   }
 
   get email() {
-    return this.formRegister.get('email')!;
+    return this.formLogin.get('email')!;
   }
 
   get password() {
-    return this.formRegister.get('password')!;
+    return this.formLogin.get('password')!;
   }
 
-  submit() {
-    if (this.formRegister.invalid) {
-      console.log('Formulário inválido');
-      return;
+  async onsubmit() {
+    try {
+      const result = await this.usuarioService.login(this.login);
+      console.log(`Login efetuado: ${result}`);
+
+      //Navego para a rota vazia novamente
+
+      this.router.navigate(['/']);
+    } catch (error) {
+      console.error(error);
     }
-    console.log('Formulário válido', this.formRegister.value);
   }
+}
+export class User {
+  id: number;
+  nome: string;
+  email: string;
+  password: string;
+  cidade: string;
+  estado: string;
 
-  login(): void {
-    return;
+  constructor() {
+    this.id = 0;
+    this.nome = '';
+    this.email = '';
+    this.password = '';
+    this.cidade = '';
+    this.estado = '';
   }
 }

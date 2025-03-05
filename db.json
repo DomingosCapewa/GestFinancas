@@ -1,22 +1,83 @@
 {
-  "users": [
+  "user": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Dominic",
       "email": "admin@gmail.com",
-      "password": "65432"
+      "password": "65432",
+      "cidade": "",
+      "estado": ""
     },
     {
-      "id": 2,
-      "nome": "Domingos",
-      "email": "domi@gmail.com",
-      "password": "1234"
+      "nome": "Maria",
+      "email": "maria@gmail.com",
+      "password": "123456",
+      "id": "2",
+      "cidade": "",
+      "estado": ""
     },
     {
-      "id": 2,
+      "id": "3",
       "nome": "Maria do carmo",
       "email": "maria@gmail.com",
-      "password": "1234"
+      "password": "1234",
+      "cidade": "",
+      "estado": ""
+    },
+    {
+      "id": "0469",
+      "nome": "Maria",
+      "email": "maria@gmail.com",
+      "password": "1234",
+      "cidade": "",
+      "estado": ""
     }
-  ]
+  ],
+  "cidadeList": [
+    "São Paulo",
+    "Rio de Janeiro",
+    "Belo Horizonte",
+    "Curitiba",
+    "Porto Alegre"
+  ],
+  "estadoList": [
+    "São Paulo",
+    "Rio de Janeiro",
+    "Minas Gerais",
+    "Paraná",
+    "Rio Grande do Sul"
+  ],
+  "createUser": {
+    "result": true,
+    "data": {
+      "id": "3",
+      "nome": "Maria do carmo",
+      "email": "maria@gmail.com",
+      "password": "1234",
+      "cidade": "",
+      "estado": ""
+    }
+  },
+  "updateUser": {
+    "result": true,
+    "data": {
+      "id": "3",
+      "nome": "Maria do carmo",
+      "email": "maria@gmail.com",
+      "password": "1234",
+      "cidade": "",
+      "estado": ""
+    }
+  },
+  "deleteUser": {
+    "result": true,
+    "data": {
+     "id": "3",
+      "nome": "Maria do carmo",
+      "email": "maria@gmail.com",
+      "password": "1234",
+      "cidade": "",
+      "estado": ""
+    }
+  }
 }

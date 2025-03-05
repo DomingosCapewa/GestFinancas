@@ -7,15 +7,17 @@
     <h1 class="titulo">Bem-Vindo</h1>
     <h3 class="subtitulo">Efetue o seu login</h3>
     <!-- Formulário -->
-    <form (ngSubmit)="login()" [formGroup]="formRegister" #formDir="ngForm">
+    <form (ngSubmit)="onsubmit()" [formGroup]="formLogin" #formDir="ngForm">
       <div class="formulario">
         <div class="form-group">
           <label for="email">Email:</label>
           <input
             type="email"
             id="email"
+            name="email"
             formControlName="email"
             placeholder="seuEmail@gmail.com"
+            [(ngModel)]="userObj.email"
             required
           />
         </div>
@@ -24,7 +26,7 @@
           class="erro-validacao"
           required
         >
-          <p *ngIf="formRegister.get('email')?.errors?.['required']">
+          <p *ngIf="formLogin.get('email')?.errors?.['required']">
             Preencha com o seu email
           </p>
         </div>
@@ -37,6 +39,7 @@
             id="password"
             formControlName="password"
             placeholder="********"
+            [(ngModel)]="userObj.password"
             required
           />
         </div>
@@ -45,12 +48,14 @@
           class="erro-validacao"
           required
         >
-          <p *ngIf="formRegister.get('password')?.errors?.['required']">
+          <p *ngIf="formLogin.get('password')?.errors?.['required']">
             Informe sua senha
           </p>
         </div>
 
-        <button type="submit" class="botao">Login</button>
+        <button type="submit" class="botao" [disabled]="formLogin.invalid">
+          Login
+        </button>
 
         <div class="link">
           <p>
