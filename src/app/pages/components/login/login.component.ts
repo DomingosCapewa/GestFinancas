@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { randomInt } from 'crypto';
 import { UsuarioService } from 'src/app/services/auth/usuario.service';
 
 @Component({
@@ -16,10 +17,9 @@ import { UsuarioService } from 'src/app/services/auth/usuario.service';
 })
 export class LoginComponent implements OnInit {
   userObj: User = new User();
-  login = {
-    email: '',
-    password: '',
-  };
+
+  userList: User[] = [];
+
   formLogin!: FormGroup;
   // userEmail: string = '';
   // userPassword: string = '';
@@ -48,32 +48,31 @@ export class LoginComponent implements OnInit {
   }
 
   async onsubmit() {
-    try {
-      const result = await this.usuarioService.login(this.login);
-      console.log(`Login efetuado: ${result}`);
+    const email = this.formLogin.value.email;
+    const password = this.formLogin.value.password;
 
-      //Navego para a rota vazia novamente
-
-      this.router.navigate(['/']);
-    } catch (error) {
-      console.error(error);
-    }
+    this.http
+      .get<User[]>('http://localhost:3000/userList')
+      .subscribe((users: User[]) => {
+        const user = users.find(
+          (u) => u.email === email && u.password === password
+        );
+        if (user) {
+          this.usuarioService.setUser(user);
+          this.router.navigate(['/home']);
+        } else {
+          alert('Usuário ou senha inválidos');
+        }
+      });
   }
 }
+
 export class User {
-  id: number;
-  nome: string;
   email: string;
   password: string;
-  cidade: string;
-  estado: string;
 
   constructor() {
-    this.id = 0;
-    this.nome = '';
     this.email = '';
     this.password = '';
-    this.cidade = '';
-    this.estado = '';
   }
 }

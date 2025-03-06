@@ -1,5 +1,5 @@
 {
-  "user": [
+  "userList": [
     {
       "id": "1",
       "nome": "Dominic",
@@ -31,53 +31,112 @@
       "password": "1234",
       "cidade": "",
       "estado": ""
+    },
+    {
+      "id": "5625",
+      "nome": "Domingos",
+      "email": "teste@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": 0.4017474510522132,
+      "nome": "Domingos Lobito Capewa",
+      "email": "domingoscapewa08@gmail.com",
+      "password": "1234",
+      "cidade": "",
+      "estado": ""
+    },
+    {
+      "id": 0.36286575699006196,
+      "nome": "Domingos Lobito Capewa",
+      "email": "domingoscapewa08@gmail.com",
+      "password": "1233445",
+      "cidade": "",
+      "estado": ""
+    },
+    {
+      "id": 0.31945238954947164,
+      "nome": "Domingos Capewa",
+      "email": "Domingosmatias378@gmail.com",
+      "password": "1234456",
+      "cidade": "",
+      "estado": ""
+    },
+    {
+      "id": 0.43096816941108185,
+      "nome": "Domingos Capewa",
+      "email": "tesste@gmail.com",
+      "password": "12345",
+      "cidade": "",
+      "estado": ""
+    },
+    {
+      "id": 0.14466503878049464,
+      "nome": "Domingos Lobito Capewa",
+      "email": "domingoscapewa08@gmail.com",
+      "password": "12345",
+      "cidade": "",
+      "estado": ""
     }
   ],
-  "cidadeList": [
-    "São Paulo",
-    "Rio de Janeiro",
-    "Belo Horizonte",
-    "Curitiba",
-    "Porto Alegre"
+  "cidadesList": [
+    {
+      "id": "1",
+      "name": "São Paulo"
+    },
+    {
+      "id": "2",
+      "name": "Rio de Janeiro"
+    },
+    {
+      "id": "3",
+      "name": "Belo Horizonte"
+    }
   ],
   "estadoList": [
-    "São Paulo",
-    "Rio de Janeiro",
-    "Minas Gerais",
-    "Paraná",
-    "Rio Grande do Sul"
+    {
+      "id": "1",
+      "name": "São Paulo"
+    },
+    {
+      "id": "2",
+      "name": "Rio de Janeiro"
+    },
+    {
+      "id": "3",
+      "name": "Minas Gerais"
+    },
+    {
+      "id": "4",
+      "name": "Paraná"
+    },
+    {
+      "id": "5",
+      "name": "Rio Grande do Sul"
+    }
   ],
   "createUser": {
-    "result": true,
-    "data": {
-      "id": "3",
-      "nome": "Maria do carmo",
-      "email": "maria@gmail.com",
-      "password": "1234",
-      "cidade": "",
-      "estado": ""
-    }
+    "id": "3",
+    "nome": "Maria do carmo",
+    "email": "maria@gmail.com",
+    "password": "1234",
+    "cidade": "",
+    "estado": ""
   },
   "updateUser": {
-    "result": true,
-    "data": {
-      "id": "3",
-      "nome": "Maria do carmo",
-      "email": "maria@gmail.com",
-      "password": "1234",
-      "cidade": "",
-      "estado": ""
-    }
+    "id": "",
+    "nome": "Maria do carmo",
+    "email": "maria@gmail.com",
+    "password": "1234",
+    "cidade": "",
+    "estado": ""
   },
   "deleteUser": {
-    "result": true,
-    "data": {
-     "id": "3",
-      "nome": "Maria do carmo",
-      "email": "maria@gmail.com",
-      "password": "1234",
-      "cidade": "",
-      "estado": ""
-    }
+    "id": "3",
+    "nome": "Maria do carmo",
+    "email": "maria@gmail.com",
+    "password": "1234",
+    "cidade": "",
+    "estado": ""
   }
 }

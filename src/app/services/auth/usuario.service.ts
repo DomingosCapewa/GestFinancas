@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, ReplaySubject } from 'rxjs';
+import { User } from 'src/app/pages/components/login/login.component';
 // import { Usuario } from 'src/app/models/identity/Usuario';
 
 @Injectable({
@@ -46,5 +47,14 @@ export class UsuarioService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+  private user: User | null = null;
+
+  setUser(user: User): void {
+    this.user = user;
+  }
+
+  getUser(): User | null {
+    return this.user;
   }
 }
