@@ -7,7 +7,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { randomInt } from 'crypto';
 import { UsuarioService } from 'src/app/services/auth/usuario.service';
 
 @Component({
@@ -17,13 +16,7 @@ import { UsuarioService } from 'src/app/services/auth/usuario.service';
 })
 export class LoginComponent implements OnInit {
   userObj: User = new User();
-
-  userList: User[] = [];
-
   formLogin!: FormGroup;
-  // userEmail: string = '';
-  // userPassword: string = '';
-  // errorMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -34,7 +27,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formLogin = this.fb.group({
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
     });
   }
@@ -51,28 +44,24 @@ export class LoginComponent implements OnInit {
     const email = this.formLogin.value.email;
     const password = this.formLogin.value.password;
 
-    this.http
-      .get<User[]>('http://localhost:3000/userList')
-      .subscribe((users: User[]) => {
-        const user = users.find(
-          (u) => u.email === email && u.password === password
-        );
-        if (user) {
-          this.usuarioService.setUser(user);
-          this.router.navigate(['/home']);
-        } else {
-          alert('Usuário ou senha inválidos');
-        }
-      });
+    try {
+      const users = await this.http.get<User[]>('http://localhost:3000/userList').toPromise();
+      const user = users?.find(
+        (u) => u.email === email && u.password === password
+      );
+      if (user) {
+        this.usuarioService.setUser(user);
+        this.router.navigate(['/home']);
+      } else {
+        alert('Usuário ou senha inválidos');
+      }
+    } catch (error) {
+      alert('Erro ao fazer login');
+    }
   }
 }
 
 export class User {
-  email: string;
-  password: string;
-
-  constructor() {
-    this.email = '';
-    this.password = '';
-  }
+  email: string = '';
+  password: string = '';
 }
