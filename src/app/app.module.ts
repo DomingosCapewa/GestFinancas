@@ -13,6 +13,7 @@ import { ResetarSenhaComponent } from './pages/components/resetar-senha/resetar-
 import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esqueceu-senha.component';
 import { AuthenticationComponent } from './pages/components/authentication/authentication.component';
 import { HomeComponent } from './pages/components/home/home.component';
+import { PerfilComponent } from './pages/components/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './pages/components/home/home.component';
     ResetarSenhaComponent,
     EsqueceuSenhaComponent,
     AuthenticationComponent,
-    HomeComponent
+    HomeComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

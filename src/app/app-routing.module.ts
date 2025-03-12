@@ -12,9 +12,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children: [
-      {path: 'home', component: HomeComponent},
-    ],
+    children: [{ path: 'home', component: HomeComponent }],
     canActivate: [AuthGuard],
   },
   {
@@ -29,8 +27,6 @@ const routes: Routes = [
     ],
   },
 ];
-
-//Adicionar depois a rota de home e edição de perfil
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

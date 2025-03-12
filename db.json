@@ -1,7 +1,7 @@
 {
   "userList": [
     {
-      "id": "1",
+      "id": 1,
       "nome": "Dominic",
       "email": "admin@gmail.com",
       "password": "65432",
@@ -9,15 +9,15 @@
       "estado": ""
     },
     {
+      "id": 2,
       "nome": "Maria",
       "email": "maria@gmail.com",
       "password": "123456",
-      "id": "2",
       "cidade": "",
       "estado": ""
     },
     {
-      "id": "3",
+      "id": 3,
       "nome": "Maria do carmo",
       "email": "maria@gmail.com",
       "password": "1234",
@@ -25,7 +25,7 @@
       "estado": ""
     },
     {
-      "id": "0469",
+      "id": 4,
       "nome": "Maria",
       "email": "maria@gmail.com",
       "password": "1234",
@@ -33,48 +33,42 @@
       "estado": ""
     },
     {
-      "id": "5625",
-      "nome": "Domingos",
-      "email": "teste@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": 0.4017474510522132,
+      "id": 5,
       "nome": "Domingos Lobito Capewa",
       "email": "domingoscapewa08@gmail.com",
+      "password": "12345",
+      "cidade": "",
+      "estado": ""
+    },
+    {
+      "id": 0.5124231880313943,
+      "nome": "Domingos Lobito Capewa",
+      "email": "domingoscapewa08@gmail.com",
+      "password": "123456",
+      "cidade": "",
+      "estado": ""
+    },
+    {
+      "id": 0.9958178743196211,
+      "nome": "Domingos Lobito Capewa",
+      "email": "domingoscapewa08@gmail.com",
+      "password": "12334",
+      "cidade": "",
+      "estado": ""
+    },
+    {
+      "id": 0.5909594793146296,
+      "nome": "Domingos Capewa",
+      "email": "Domingosmatias378@gmail.com",
       "password": "1234",
       "cidade": "",
       "estado": ""
     },
     {
-      "id": 0.36286575699006196,
+      "id": 0.4328036373414432,
       "nome": "Domingos Lobito Capewa",
-      "email": "domingoscapewa08@gmail.com",
-      "password": "1233445",
-      "cidade": "",
-      "estado": ""
-    },
-    {
-      "id": 0.31945238954947164,
-      "nome": "Domingos Capewa",
       "email": "Domingosmatias378@gmail.com",
-      "password": "1234456",
-      "cidade": "",
-      "estado": ""
-    },
-    {
-      "id": 0.43096816941108185,
-      "nome": "Domingos Capewa",
-      "email": "tesste@gmail.com",
-      "password": "12345",
-      "cidade": "",
-      "estado": ""
-    },
-    {
-      "id": 0.14466503878049464,
-      "nome": "Domingos Lobito Capewa",
-      "email": "domingoscapewa08@gmail.com",
-      "password": "12345",
+      "password": "11234",
       "cidade": "",
       "estado": ""
     }

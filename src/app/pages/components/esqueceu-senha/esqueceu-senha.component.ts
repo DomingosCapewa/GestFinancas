@@ -9,6 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class EsqueceuSenhaComponent implements OnInit {
   formEsqueceuSenha!: FormGroup;
 
+
   constructor() { }
 
   ngOnInit(): void {
@@ -27,5 +28,9 @@ export class EsqueceuSenhaComponent implements OnInit {
       return;
     }
     console.log('Formulário válido', this.formEsqueceuSenha.value);
+  }
+
+  redefinirSenha() {
+    this.email.value;
   }
 }
