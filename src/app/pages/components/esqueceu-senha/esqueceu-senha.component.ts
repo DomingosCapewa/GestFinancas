@@ -18,8 +18,8 @@ export class EsqueceuSenhaComponent implements OnInit {
     return this.formEsqueceuSenha.get('email')!;
   }
 
-  get password() {
-    return this.formEsqueceuSenha.get('password')!;
+  get senha() {
+    return this.formEsqueceuSenha.get('senha')!;
   }
 
   submit() {

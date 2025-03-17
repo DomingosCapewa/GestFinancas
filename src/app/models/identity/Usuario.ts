@@ -3,7 +3,7 @@ export class Usuario {
   Nome: string | undefined;
   Sobrenome: string = '';
   Email!: string;
-  Password!: string;
+  Senha!: string;
   Ativo!: boolean;
   DataAtualizacao!: Date;
   DataCriacao!: Date;
