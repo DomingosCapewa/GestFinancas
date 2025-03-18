@@ -35,18 +35,17 @@
             type="password"
             id="password"
             name="password"
-            formControlName="password"
+            formControlName="senha"
             placeholder="********"
-            [(ngModel)]="userObj.password"
             required
           />
         </div>
         <div
-          *ngIf="password.invalid && formDir.submitted"
+          *ngIf="senha.invalid && formDir.submitted"
           class="erro-validacao"
           required
         >
-          <p *ngIf="formLogin.get('password')?.errors?.['required']">
+          <p *ngIf="formLogin.get('senha')?.errors?.['required']">
             Informe sua senha
           </p>
         </div>
@@ -64,5 +63,6 @@
         </div>
       </div>
     </form>
+    {{ formLogin.value | json }}
   </div>
 </div>

@@ -78,16 +78,14 @@
           </p>
         </div>
 
-        <button type="submit" class="botao" (click)="cadastrar()">
-          Cadastrar
-        </button>
+        <button type="submit" class="botao">Cadastrar</button>
 
         <p class="link">
           Já possui uma conta? Faça <a routerLink="/login">Login</a>
         </p>
       </div>
 
-      {{--
+      <!-- {{--
       <div
         *ngIf="formDir.submitted && formRegister.invalid"
         class="erro-validacao"
@@ -108,8 +106,9 @@
       --}}
     </form>
 
-    {{ nome.value }}<br>
-    {{ email.value }}<br>
-    {{ senha.value }}
+   {{formRegister.value | json}}
+  </div>
+</div>-->
+    </form>
   </div>
 </div>
