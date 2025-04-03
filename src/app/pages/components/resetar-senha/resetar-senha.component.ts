@@ -9,18 +9,23 @@ import { UsuarioService } from 'src/app/services/auth/usuario.service';
 })
 export class ResetarSenhaComponent implements OnInit {
   formResetarSenha!: FormGroup;
+  route: any;
 
   constructor(private usuarioService: UsuarioService) {}
-
   ngOnInit(): void {
     this.formResetarSenha = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
+
+    this.route.queryParams.subscribe((params: any) => {
+      this.email.setValue(params['email']);
+      console.log(this.email.value);
+    });
   }
 
-  get email() {
-    return this.formResetarSenha.get('email')!;
+  get email(): FormControl {
+    return this.formResetarSenha.get('email') as FormControl;
   }
 
   get password() {
@@ -34,5 +39,4 @@ export class ResetarSenhaComponent implements OnInit {
     }
     console.log('Formulário válido', this.formResetarSenha.value);
   }
-
 }

@@ -11,10 +11,7 @@ import { UsuarioService } from 'src/app/services/auth/usuario.service';
 export class RegisterComponent implements OnInit {
   formRegister!: FormGroup;
 
-  constructor(
-    private router: Router,
-    private usuarioService: UsuarioService
-  ) {}
+  constructor(private router: Router, private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
     this.formRegister = new FormGroup({
@@ -40,17 +37,13 @@ export class RegisterComponent implements OnInit {
     this.cadastrar();
   }
 
-
-
   cadastrar() {
-
     if (this.formRegister.valid) {
       const userObj = {
         nome: this.nome.value,
         email: this.email.value,
         senha: this.senha.value,
       };
-
       this.usuarioService.cadastrar(userObj).subscribe(
         (response) => {
           console.log('Cadastro realizado com sucesso', response);
@@ -67,4 +60,3 @@ export class RegisterComponent implements OnInit {
     }
   }
 }
-

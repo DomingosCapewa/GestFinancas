@@ -1,7 +1,6 @@
-export class Usuario {
-  Id!: number;
-  Nome: string | undefined;
-  Sobrenome: string = '';
+export class Usuaro {
+  Nome!: string;
+  Sobrenome!: string;
   Email!: string;
   Senha!: string;
   Ativo!: boolean;

@@ -10,7 +10,7 @@
     <h3 class="subtitulo">Informe o seu e-mail e redefina a senha</h3>
     <!-- Formulário -->
     <form
-      (ngSubmit)="submit()"
+      (ngSubmit)="enviarEmail()"
       [formGroup]="formEsqueceuSenha"
       #formDir="ngForm"
     >
@@ -35,7 +35,7 @@
           </p>
         </div>
 
-        <button type="submit" class="botao" routerLink="/resetarSenha">Redefinir</button>
+        <button type="submit" class="botao">Redefinir</button>
 
         <p class="link">
           Ainda não é cadastrado? <a routerLink="/cadastrar"> Cadastrar</a>

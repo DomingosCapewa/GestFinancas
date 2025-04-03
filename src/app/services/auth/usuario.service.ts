@@ -22,4 +22,8 @@ export class UsuarioService {
   login(email: string, senha: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/login`, { email, senha });
   }
+
+  esqueceuSenha(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/esqueceu-senha`, { email });
+  }
 }
