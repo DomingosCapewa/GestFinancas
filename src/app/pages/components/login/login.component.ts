@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.formLogin.valid) {
-      console.log('Enviando para o backend:', this.formLogin.value);
+      // console.log('Enviando para o backend:', this.formLogin.value);
 
       // Confirma que os dados de email e senha estão sendo enviados corretamente
       this.usuarioService.login(this.email.value, this.senha.value).subscribe(

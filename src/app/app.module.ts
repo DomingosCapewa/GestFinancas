@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/components/login/login.component';
@@ -16,6 +15,8 @@ import { HomeComponent } from './pages/components/home/home.component';
 import { PerfilComponent } from './pages/components/perfil/perfil.component';
 // import { NavbarComponent } from './pages/components/navbar/navbar.component';
 import { RecuperarSenhaComponent } from './pages/components/recuperar-senha/recuperar-senha.component';
+import { SideBarComponent } from './util/side-bar/side-bar.component';
+import { HeaderComponent } from './util/header/header.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,9 @@ import { RecuperarSenhaComponent } from './pages/components/recuperar-senha/recu
     AuthenticationComponent,
     HomeComponent,
     PerfilComponent,
-
+    SideBarComponent,
     RecuperarSenhaComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,9 +40,7 @@ import { RecuperarSenhaComponent } from './pages/components/recuperar-senha/recu
     RouterModule,
     HttpClientModule,
   ],
-  providers: [
-    
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

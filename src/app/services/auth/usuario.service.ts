@@ -19,8 +19,9 @@ export class UsuarioService {
     email: string;
     senha: string;
   }): Observable<any> {
+    console.log('Calling endpoint:', `${this.apiUrl}`);
     return this.http
-      .post(`${this.apiUrl}`, account)
+      .post(`${this.apiUrl}/cadastrar-usuario`, account)
       .pipe(map((response) => response));
   }
 
