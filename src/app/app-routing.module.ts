@@ -7,6 +7,7 @@ import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esquec
 import { AuthenticationComponent } from './pages/components/authentication/authentication.component';
 import { AuthGuard } from './pages/components/shared/guards/auth.guard';
 import { HomeComponent } from './pages/components/home/home.component';
+import { RecuperarSenhaComponent } from './pages/components/recuperar-senha/recuperar-senha.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'cadastrar', component: RegisterComponent },
       { path: 'esqueceuSenha', component: EsqueceuSenhaComponent },
       { path: 'resetarSenha', component: ResetarSenhaComponent },
+      { path: 'recuperar-senha', component: RecuperarSenhaComponent }
     ],
   },
 ];

@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class EnviarEmailService {
-  private apiUrl = `${environment.apiUrl}/api/email`;
+  private apiUrl = environment.apiURL + '/api/email';
 
   constructor(private http: HttpClient) {}
 
@@ -17,5 +17,6 @@ export class EnviarEmailService {
 
   enviarEmail(email: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/recuperar-senha`, { email });
+    
   }
 }

@@ -6,17 +6,16 @@
   <div class="form-container">
     <h1 class="titulo">Redefinir Senha</h1>
     <h3 class="subtitulo">Preencha com a sua nova senha!</h3>
-    <!-- Formulário -->
+
     <form
       (ngSubmit)="submit()"
       [formGroup]="formResetarSenha"
       #formDir="ngForm"
     >
       <div class="formulario">
+        
         <div class="form-group">
-          <label for="password">Nova Password:</label>
-          <br />
-
+          <label for="password">Nova Password:</label><br />
           <input
             type="password"
             id="password"
@@ -25,46 +24,44 @@
             required
           />
         </div>
-        <div
-          *ngIf="password.invalid && formDir.submitted"
-          class="erro-validacao"
-          required
-        >
-          <p *ngIf="formResetarSenha.get('password')?.errors?.['required']">
-            Informe uma senha
-          </p>
-          <p *ngIf="formResetarSenha.get('password')?.errors?.['match']">
-            As senhas não conferem
-          </p>
-        </div>
 
         <div class="form-group">
-          <label for="password">Confirme a sua nova password:</label>
-          <br />
+          <label for="passwordConfirm">Confirme a sua nova password:</label><br />
           <input
             type="password"
-            id="password"
-            formControlName="password"
+            id="passwordConfirm"
+            formControlName="passwordConfirm"
             placeholder="********"
             required
           />
         </div>
+
+
+        <div
+          *ngIf="formDir.submitted && formResetarSenha.errors?.['match']"
+          class="erro-validacao"
+        >
+          <p>As senhas não conferem</p>
+        </div>
+
         <div
           *ngIf="password.invalid && formDir.submitted"
           class="erro-validacao"
-          required
         >
-          <p *ngIf="formResetarSenha.get('password')?.errors?.['required']">
-            Informe uma senha
-          </p>
+          <p *ngIf="password.errors?.['required']">Informe uma senha</p>
         </div>
 
-        <button type="submit" class="botao" onsubmit="resetarSenha()">
-          Redefinir
-        </button>
-        <!-- <h1>Email: {{ this.email }}</h1> -->
+        <div
+          *ngIf="passwordConfirm.invalid && formDir.submitted"
+          class="erro-validacao"
+        >
+          <p *ngIf="passwordConfirm.errors?.['required']">Confirme sua senha</p>
+        </div>
+
+        <button type="submit" class="botao">Redefinir</button>
+
         <p class="link">
-          Ainda não é cadastrado? <a routerLink="/cadastrar"> Cadastrar</a>
+          Ainda não é cadastrado? <a routerLink="/cadastrar">Cadastrar</a>
         </p>
         <p class="link">Faça <a routerLink="/login">login</a></p>
       </div>

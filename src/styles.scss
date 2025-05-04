@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'src/app/util/base/base.scss';
+@import 'src/app/util/components/_breakpoints.scss';
+@import 'src/app/util/components/_header.scss';
+@import 'src/app/util/components/_sidebar.scss';
+@import 'src/app/util/config/_variables.scss';
+
+@import 'src/app/util/layout/_layout.scss';

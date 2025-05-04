@@ -14,6 +14,8 @@ import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esquec
 import { AuthenticationComponent } from './pages/components/authentication/authentication.component';
 import { HomeComponent } from './pages/components/home/home.component';
 import { PerfilComponent } from './pages/components/perfil/perfil.component';
+// import { NavbarComponent } from './pages/components/navbar/navbar.component';
+import { RecuperarSenhaComponent } from './pages/components/recuperar-senha/recuperar-senha.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PerfilComponent } from './pages/components/perfil/perfil.component';
     EsqueceuSenhaComponent,
     AuthenticationComponent,
     HomeComponent,
-    PerfilComponent
+    PerfilComponent,
+
+    RecuperarSenhaComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +36,11 @@ import { PerfilComponent } from './pages/components/perfil/perfil.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

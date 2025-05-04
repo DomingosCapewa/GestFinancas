@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import "../../../../assets/Styles/css/form-style.scss";
+
+.container_reset {
+  display: flex;
+  gap: 60px;
+  padding: 10px;
+  flex-wrap: wrap;
+  margin-top: 90px;
+  flex-direction: row-reverse;
+}

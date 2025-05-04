@@ -1,0 +1,28 @@
+<div class="container_reset">
+  <div class="imagem">
+    <img src="../../../../assets/Styles/img/undraw_my-password_iyga.svg" />
+  </div>
+
+  <div class="form-container">
+    <h1 class="titulo">Redefinir Senha</h1>
+    <h3 class="subtitulo">Preencha com a sua nova senha!</h3>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div>
+      <label>Nova senha:</label><br />
+      <input type="password" formControlName="password" />
+      <div *ngIf="form.get('password')?.invalid && form.touched">
+        <small>Senha obrigatória e deve ter no mínimo 6 caracteres.</small>
+      </div>
+    </div>
+
+    <div>
+      <label>Confirmar senha:</label><br />
+      <input type="password" formControlName="passwordConfirm" />
+      <div *ngIf="form.errors?.['match'] && form.touched">
+        <small>As senhas não conferem.</small>
+      </div>
+    </div>
+
+    <button type="submit">Redefinir Senha</button>
+  </form>
+</div>
