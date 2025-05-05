@@ -6,13 +6,13 @@
   <div class="form-container">
     <h1 class="titulo">Bem-Vindo</h1>
     <h3 class="subtitulo">Efetue o seu login</h3>
-    <br />
+
 
     <!-- Formulário -->
     <form (ngSubmit)="onsubmit()" [formGroup]="formLogin" #formDir="ngForm">
       <div class="formulario">
         <div class="form-group">
-          <label for="email"><p>Email:</label>
+          <label for="email">Email:</label>
           <input
             type="email"
             id="email"

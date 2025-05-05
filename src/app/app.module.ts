@@ -10,13 +10,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ResetarSenhaComponent } from './pages/components/resetar-senha/resetar-senha.component';
 import { EsqueceuSenhaComponent } from './pages/components/esqueceu-senha/esqueceu-senha.component';
-import { AuthenticationComponent } from './pages/components/authentication/authentication.component';
+
 import { HomeComponent } from './pages/components/home/home.component';
 import { PerfilComponent } from './pages/components/perfil/perfil.component';
 // import { NavbarComponent } from './pages/components/navbar/navbar.component';
 import { RecuperarSenhaComponent } from './pages/components/recuperar-senha/recuperar-senha.component';
-import { SideBarComponent } from './util/side-bar/side-bar.component';
-import { HeaderComponent } from './util/header/header.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +23,9 @@ import { HeaderComponent } from './util/header/header.component';
     RegisterComponent,
     ResetarSenhaComponent,
     EsqueceuSenhaComponent,
-    AuthenticationComponent,
     HomeComponent,
     PerfilComponent,
-    SideBarComponent,
     RecuperarSenhaComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,

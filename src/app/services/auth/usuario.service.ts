@@ -13,6 +13,14 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
+  estaAutenticado(): boolean {
+    const token = localStorage.getItem('token');
+    return token !== null && token !== undefined;
+  }
+  autorizar(): boolean {
+    localStorage.setItem('token', 'true');
+    return true;
+  }
   // Método para cadastrar um novo usuário
   cadastrar(account: {
     nome: string;
@@ -20,6 +28,7 @@ export class UsuarioService {
     senha: string;
   }): Observable<any> {
     console.log('Calling endpoint:', `${this.apiUrl}`);
+    const token = localStorage.setItem('token', 'true');
     return this.http
       .post(`${this.apiUrl}/cadastrar-usuario`, account)
       .pipe(map((response) => response));
@@ -27,6 +36,7 @@ export class UsuarioService {
 
   // Método para login
   login(email: string, senha: string): Observable<any> {
+    localStorage.setItem('token', 'true');
     return this.http
       .post(`${this.apiUrl}/login`, { email, senha })
       .pipe(map((response) => response));
@@ -57,5 +67,17 @@ export class UsuarioService {
     return this.http
       .post(`${this.apiUrl}/confirmar-reset-senha`, data)
       .pipe(map((response) => response));
+  }
+  logout(): void {
+    return localStorage.clear();
+  }
+
+  refreshToken(): Observable<any> {
+    return this.http
+      .post(`${this.apiUrl}/refresh-token`, {})
+      .pipe(map((response) => response));
+  }
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 }

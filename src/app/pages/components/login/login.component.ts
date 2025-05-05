@@ -43,6 +43,11 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.formLogin.valid) {
+      if (this.usuarioService.estaAutenticado()) {
+        console.log('Usuário já está autenticado');
+        this.router.navigate(['/home']);
+        return;
+      }
       // console.log('Enviando para o backend:', this.formLogin.value);
 
       // Confirma que os dados de email e senha estão sendo enviados corretamente
@@ -55,6 +60,14 @@ export class LoginComponent implements OnInit {
           console.error('Erro no login', error);
         }
       );
+    }
+  }
+  loginCheck() {
+    if (this.usuarioService.estaAutenticado()) {
+      console.log('Usuário já está autenticado');
+      this.router.navigate(['/home']);
+    } else {
+      console.log('Usuário não autenticado');
     }
   }
 }

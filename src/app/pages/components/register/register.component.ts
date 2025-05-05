@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/auth/usuario.service';
+import { EnviarEmailService } from './../../../services/enviarEmail.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { UsuarioService } from 'src/app/services/auth/usuario.service';
 export class RegisterComponent implements OnInit {
   formRegister!: FormGroup;
 
-  constructor(private router: Router, private usuarioService: UsuarioService) {}
+  constructor(private router: Router, private usuarioService: UsuarioService, enviarEmailService: EnviarEmailService) {}
 
   ngOnInit(): void {
     this.formRegister = new FormGroup({
@@ -44,9 +45,11 @@ export class RegisterComponent implements OnInit {
         email: this.email.value,
         senha: this.senha.value,
       };
+
       this.usuarioService.cadastrar(userObj).subscribe(
         (response) => {
           console.log('Cadastro realizado com sucesso', response);
+
           this.router.navigate(['/home']);
         },
         (error) => {

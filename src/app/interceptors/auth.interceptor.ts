@@ -106,7 +106,6 @@ export class AuthInterceptor implements HttpInterceptor {
       status: error.status
     };
 
-    // Você pode adicionar lógica para logging de erros aqui
     console.error('HTTP Error:', errorResponse);
 
     return throwError(errorResponse);

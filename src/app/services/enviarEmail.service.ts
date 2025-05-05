@@ -12,11 +12,13 @@ export class EnviarEmailService {
   constructor(private http: HttpClient) {}
 
   esqueceuSenha(email: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/recuperar-senha`, { email });
+    return this.http.post(`${this.apiUrl}/email-recuperacao-senha`, { email });
   }
 
   enviarEmail(email: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/recuperar-senha`, { email });
-    
+    return this.http.post(`${this.apiUrl}/email-recuperacao-senha`, { email });
+  }
+  enviarEmailCadastro(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/confirmar-cadastro`, { email });
   }
 }
