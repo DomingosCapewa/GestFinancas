@@ -15,6 +15,7 @@ import { HomeComponent } from './pages/components/home/home.component';
 import { PerfilComponent } from './pages/components/perfil/perfil.component';
 // import { NavbarComponent } from './pages/components/navbar/navbar.component';
 import { RecuperarSenhaComponent } from './pages/components/recuperar-senha/recuperar-senha.component';
+import { NavBarComponent } from './pages/components/shared/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { RecuperarSenhaComponent } from './pages/components/recuperar-senha/recu
     HomeComponent,
     PerfilComponent,
     RecuperarSenhaComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

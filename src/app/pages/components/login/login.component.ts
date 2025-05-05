@@ -62,12 +62,5 @@ export class LoginComponent implements OnInit {
       );
     }
   }
-  loginCheck() {
-    if (this.usuarioService.estaAutenticado()) {
-      console.log('Usuário já está autenticado');
-      this.router.navigate(['/home']);
-    } else {
-      console.log('Usuário não autenticado');
-    }
-  }
+  
 }

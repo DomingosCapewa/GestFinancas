@@ -16,6 +16,7 @@ export class UsuarioService {
   estaAutenticado(): boolean {
     const token = localStorage.getItem('token');
     return token !== null && token !== undefined;
+
   }
   autorizar(): boolean {
     localStorage.setItem('token', 'true');
