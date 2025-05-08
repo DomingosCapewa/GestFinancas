@@ -1,27 +1,125 @@
 # GestFinancas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+Este é um projeto desenvolvido com [Angular CLI](https://github.com/angular/angular-cli) versão 13.3.11. O objetivo do **GestFinancas** é auxiliar no gerenciamento financeiro, oferecendo funcionalidades para controle de despesas, receitas e visualização de relatórios.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Cadastro de receitas e despesas.
+- Visualização de relatórios financeiros.
+- Filtragem e ordenação de transações.
+- Exportação de dados (se aplicável).
+- Configurações personalizáveis para o usuário.
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Angular**: Framework principal para o desenvolvimento do front-end.
+- **TypeScript**: Linguagem utilizada para a base do projeto.
+- **HTML e CSS**: Para estruturação e estilização.
+- Outras dependências e pacotes podem ser encontrados no arquivo `package.json`.
 
-## Build
+## Como Executar o Projeto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Siga as etapas abaixo para configurar e executar o projeto localmente:
 
-## Running unit tests
+### Pré-requisitos
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js instalado (recomendado: versão 16 ou superior).
+- Angular CLI instalado globalmente. Para instalar, use o comando:
+  ```bash
+  npm install -g @angular/cli
+  ```
 
-## Running end-to-end tests
+### Passos para Execução
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/DomingosCapewa/GestFinancas.git
+   ```
 
-## Further help
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd GestFinancas
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Instale as dependências:
+   ```bash
+   npm install
+   ```
+
+4. Inicie o servidor de desenvolvimento:
+   ```bash
+   ng serve
+   ```
+
+5. Acesse a aplicação no navegador:
+   ```
+   http://localhost:4200/
+   ```
+
+## Comandos Úteis
+
+### Servidor de Desenvolvimento
+- Inicie o servidor de desenvolvimento:
+  ```bash
+  ng serve
+  ```
+
+### Criação de Componentes
+- Gere novos componentes, diretivas, pipes, etc.:
+  ```bash
+  ng generate component component-name
+  ```
+
+### Build
+- Gere os artefatos de produção:
+  ```bash
+  ng build
+  ```
+
+### Testes
+- Execute os testes unitários:
+  ```bash
+  ng test
+  ```
+- Execute os testes end-to-end:
+  ```bash
+  ng e2e
+  ```
+
+## Estrutura do Projeto
+
+Aqui está uma visão geral da estrutura principal do projeto:
+
+```
+GestFinancas/
+├── src/
+│   ├── app/         # Código principal da aplicação
+│   ├── assets/      # Recursos estáticos (imagens, ícones, etc.)
+│   ├── environments/ # Configurações de ambiente
+├── angular.json     # Configurações do Angular CLI
+├── package.json     # Dependências e scripts do projeto
+├── README.md        # Documentação do projeto
+```
+
+## Contribuição
+
+Contribuições são bem-vindas! Siga os passos abaixo para contribuir com o projeto:
+
+1. Faça um fork deste repositório.
+2. Crie uma branch para a sua feature ou correção:
+   ```bash
+   git checkout -b minha-feature
+   ```
+3. Commit suas alterações:
+   ```bash
+   git commit -m "Minha nova feature"
+   ```
+4. Envie para o repositório remoto:
+   ```bash
+   git push origin minha-feature
+   ```
+5. Abra um Pull Request.
+
+## Licença
+
+Este projeto não possui uma licença definida. Consulte o proprietário do repositório para mais informações.
