@@ -10,7 +10,6 @@ import { environment } from 'src/environments/environment';
 export class UsuarioService {
   // Corrected string interpolation for apiUrl
   private apiUrl = `${environment.apiURL}/api/Usuario`;
-
   constructor(private http: HttpClient) {}
 
   estaAutenticado(): boolean {
