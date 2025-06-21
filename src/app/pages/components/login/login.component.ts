@@ -37,30 +37,31 @@ export class LoginComponent implements OnInit {
     return this.formLogin.get('senha')!;
   }
 
-  async onsubmit() {
-    this.login();
-  }
-
-  login() {
-    if (this.formLogin.valid) {
-      if (this.usuarioService.estaAutenticado()) {
-        console.log('Usuário já está autenticado');
-        this.router.navigate(['/home']);
-        return;
-      }
-      // console.log('Enviando para o backend:', this.formLogin.value);
-
-      // Confirma que os dados de email e senha estão sendo enviados corretamente
-      this.usuarioService.login(this.email.value, this.senha.value).subscribe(
-        (response) => {
-          console.log('Login realizado com sucesso', response);
-          this.router.navigate(['/home']);
-        },
-        (error) => {
-          console.error('Erro no login', error);
-        }
-      );
+  onsubmit() {
+    if (!this.formLogin.valid) {
+      console.warn('Formulário inválido', this.formLogin.errors);
+      return;
     }
+
+    const { email, senha } = this.formLogin.value;
+
+    if (this.usuarioService.estaAutenticado()) {
+      console.log('Usuário já está autenticado');
+      this.router.navigate(['/home']);
+      return;
+    }
+
+    this.usuarioService.login(email, senha).subscribe({
+      next: (response) => {
+        console.log('Login realizado com sucesso', response); 
+        this.router.navigate(['/home']);
+        alert('Login bem-sucedido! Redirecionando...');
+        this.router.navigate(['/home']);
+      },
+      error: (error) => {
+        console.error('Erro no login', error);
+        alert('Falha no login: ' + (error.error?.message || error.message));
+      },
+    });
   }
-  
 }

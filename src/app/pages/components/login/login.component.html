@@ -7,64 +7,62 @@
     <h1 class="titulo">Bem-Vindo</h1>
     <h3 class="subtitulo">Efetue o seu login</h3>
 
-
-    <!-- Formulário -->
-    <form (ngSubmit)="onsubmit()" [formGroup]="formLogin" #formDir="ngForm">
+    <!-- Formulário reativo -->
+    <form (ngSubmit)="onsubmit()" [formGroup]="formLogin">
       <div class="formulario">
+        <!-- Email -->
         <div class="form-group">
           <label for="email">Email:</label>
           <input
             type="email"
             id="email"
-            name="email"
             formControlName="email"
             placeholder="seuEmail@gmail.com"
             required
           />
         </div>
         <div
-          *ngIf="email.invalid && email.touched"
+          *ngIf="email.invalid && (email.touched || formLogin.touched)"
           class="erro-validacao"
-          required
         >
           <p *ngIf="email.errors?.['required']">Preencha com o seu email</p>
+          <p *ngIf="email.errors?.['email']">Formato de email inválido</p>
         </div>
 
+        <!-- Senha -->
         <div class="form-group">
-          <label for="password">Password:</label>
-          <br />
+          <label for="password">Senha:</label>
           <input
             type="password"
             id="password"
-            name="password"
             formControlName="senha"
             placeholder="********"
             required
           />
         </div>
         <div
-          *ngIf="senha.invalid && formDir.submitted"
+          *ngIf="senha.invalid && (senha.touched || formLogin.touched)"
           class="erro-validacao"
-          required
         >
-          <p *ngIf="formLogin.get('senha')?.errors?.['required']">
-            Informe sua senha
-          </p>
+          <p *ngIf="senha.errors?.['required']">Informe sua senha</p>
         </div>
 
+        <!-- Botão -->
         <button type="submit" class="botao">Login</button>
 
+        <!-- Links -->
         <div class="link">
           <p>
-            Ainda não é cadastrado? <a routerLink="/cadastrar"> Cadastrar</a>
+            Ainda não é cadastrado? <a routerLink="/cadastrar">Cadastrar</a>
           </p>
-
           <p class="reset">
             <a routerLink="/esqueceuSenha">Esqueceu a senha?</a>
           </p>
         </div>
       </div>
     </form>
-    {{ formLogin.value | json }}
+
+    <!-- Exibe dados do formulário para debug -->
+    <pre>{{ formLogin.value | json }}</pre>
   </div>
 </div>

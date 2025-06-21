@@ -3,19 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Usuario } from 'src/app/models/identity/Usuario';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
-  // Corrected string interpolation for apiUrl
   private apiUrl = `${environment.apiURL}/api/Usuario`;
   constructor(private http: HttpClient) {}
 
   estaAutenticado(): boolean {
     const token = localStorage.getItem('token');
     return token !== null && token !== undefined;
-
   }
   autorizar(): boolean {
     localStorage.setItem('token', 'true');
@@ -34,21 +33,24 @@ export class UsuarioService {
       .pipe(map((response) => response));
   }
 
-  // Método para login
   login(email: string, senha: string): Observable<any> {
-    localStorage.setItem('token', 'true');
-    return this.http
-      .post(`${this.apiUrl}/login`, { email, senha })
-      .pipe(map((response) => response));
+    return this.http.post<any>(`${this.apiUrl}/login`, { email, senha }).pipe(
+      map((response) => {
+        const token = response?.data?.token;
+        if (token) {
+          localStorage.setItem('token', token);
+        } else {
+          console.warn('Token não encontrado na resposta do backend');
+        }
+
+        return response;
+      })
+    );
   }
 
-  // Método para esquecer a senha
-  esqueceuSenha(email: string): Observable<any> {
-    return this.http
-      .post(`${this.apiUrl}/esqueceu-senha`, { email })
-      .pipe(map((response) => response));
+  logout(): void {
+    return localStorage.removeItem('token');
   }
-
   // Método para resetar a senha
   resetPassword(data: {
     password: string;
@@ -67,9 +69,6 @@ export class UsuarioService {
     return this.http
       .post(`${this.apiUrl}/confirmar-reset-senha`, data)
       .pipe(map((response) => response));
-  }
-  logout(): void {
-    return localStorage.clear();
   }
 
   refreshToken(): Observable<any> {
