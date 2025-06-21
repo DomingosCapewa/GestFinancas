@@ -7,7 +7,7 @@ Este é um projeto desenvolvido com [Angular CLI](https://github.com/angular/ang
 - Cadastro de receitas e despesas.
 - Visualização de relatórios financeiros.
 - Filtragem e ordenação de transações.
-- Exportação de dados (se aplicável).
+- Exportação de dados (ainda não foi aplicado).
 - Configurações personalizáveis para o usuário.
 
 ## Tecnologias Utilizadas
@@ -86,21 +86,6 @@ Siga as etapas abaixo para configurar e executar o projeto localmente:
   ng e2e
   ```
 
-## Estrutura do Projeto
-
-Aqui está uma visão geral da estrutura principal do projeto:
-
-```
-GestFinancas/
-├── src/
-│   ├── app/         # Código principal da aplicação
-│   ├── assets/      # Recursos estáticos (imagens, ícones, etc.)
-│   ├── environments/ # Configurações de ambiente
-├── angular.json     # Configurações do Angular CLI
-├── package.json     # Dependências e scripts do projeto
-├── README.md        # Documentação do projeto
-```
-
 ## Contribuição
 
 Contribuições são bem-vindas! Siga os passos abaixo para contribuir com o projeto:
@@ -122,4 +107,4 @@ Contribuições são bem-vindas! Siga os passos abaixo para contribuir com o pro
 
 ## Licença
 
-Este projeto não possui uma licença definida. Consulte o proprietário do repositório para mais informações.
+Este projeto não possui uma licença definida.
