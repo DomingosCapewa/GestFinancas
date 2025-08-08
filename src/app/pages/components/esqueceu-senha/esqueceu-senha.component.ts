@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -22,14 +22,12 @@ export class EsqueceuSenhaComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
     });
   }
-  // ngOnInit(): void {}
+
+
   get email() {
     return this.formEsqueceuSenha.get('email')?.value;
   }
 
-  // get senha() {
-  //   return this.formEsqueceuSenha.get('senha')!;
-  // }
 
   submit() {
     if (this.formEsqueceuSenha.invalid) {
@@ -45,17 +43,28 @@ export class EsqueceuSenhaComponent implements OnInit {
   //     });
   //   }
   // }
+  @Output() formSubmitted = new EventEmitter<void>();
+
+
+
+  // Método para enviar o e-mail
   enviarEmail() {
     this.enviarEmailService.enviarEmail(this.email).subscribe(
       (response) => {
         console.log('E-mail enviado com sucesso:', response);
       },
       (error) => {
-        console.error('Erro ao enviar e-mail:', error);
+        // Verifica se o erro é realmente um erro ou apenas uma resposta inesperada do backend
+        if (error.status === 200 || error.status === 201) {
+          console.log('E-mail enviado com sucesso', error);
+        } else {
+          console.error('Erro ao enviar e-mail:', error);
+        }
       }
     );
   }
   voltar() {
     this.router.navigate(['/login']);
   }
+
 }
